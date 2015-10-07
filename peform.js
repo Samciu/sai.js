@@ -3,12 +3,16 @@
 
   if(!Sai){return;}
 
-  // var DEFAULT_PROFILE = "jserror";
-  // var MAX_STACKTRACE_DEEP = 20;
-  // var RE_FUNCTION = /^\s*function\b[^\)]+\)/;
+  Sai.attrs = {};
 
-  // var lost_resources = [];
-  // var lost_resources_cache = {};
+  var document = window.document;
+  var documentElement = document.documentElement;
+  var body = document.body;
+  var navigator = window.navigator;
+  var ua = navigator.userAgent;
+
+  //测试
+  Sai.server = "http://baidu.com";
 
   // 自定义属性接口。
   Sai.set = function(key,val){
@@ -17,7 +21,7 @@
   };
 
   Sai.get = function(key){
-    return monitor.attrs[key] || null;
+    return Sai.attrs[key] || null;
   }
 
   // 性能收集
@@ -68,7 +72,7 @@
       }
 
       // send('http://w.zuzuche.com/collect.php', data);
-      send(Sai.server,data);
+      Sai.log(data);
   }, false);
 
 })(this, this.Sai);
