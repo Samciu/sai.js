@@ -161,6 +161,9 @@ function send(host, data, callback){
   };
 
   img.src = url;
+  // 无服务器测试log
+  console.log(url);
+  console.log(data);
 }
 
 var sending = false;
