@@ -1,5 +1,5 @@
 
-(function(global, Sai){
+(function(window, Sai){
 
   if(!Sai){return;}
 
@@ -7,7 +7,7 @@
 
   var document = window.document;
   var documentElement = document.documentElement;
-  var body = document.body;
+  // var body = document.body;
   var navigator = window.navigator;
   var ua = navigator.userAgent;
 
@@ -26,6 +26,7 @@
 
   // 性能收集
   window.addEventListener('load', function() {
+      var body = document.body;
       var data = {};
 
       // 浏览器信息

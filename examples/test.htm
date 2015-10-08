@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>test</title>
+	<script type="text/javascript" src="../seer-sai.js"></script>
+	<script type="text/javascript" src="../peform.js"></script>
+	<script type="text/javascript" src="../seer-jsniffer.js"></script>
+	<script src="../dist/sai/3.0.0/sai.js"></script>
+</head>
+<body>
+	<script type="text/javascript" onerror="if(!!window.Sai) {window.Sai.lost(this.src); Sai.error(new Error('js丢失'))}" src="404.js"></script>
+	<img src="404.jpg" onerror="if(!!window.Sai) {window.Sai.lost(this.src); Sai.error(new Error('图片丢失'))}" alt="丢失的图片">
+	<button type="button" id="btn-ex1">throw出一个error</button>
+	<button type="button" id="btn-ex2">主动监控被捕获的错误</button>
+	<button type="button" id="btn-ex3">未定义</button>
+	<button type="button" id="btn-ex4">log一下</button>
+
+	<script>
+		var btn1 = document.getElementById('btn-ex1');
+		var btn2 = document.getElementById('btn-ex2');
+		var btn3 = document.getElementById('btn-ex3');
+		var btn4 = document.getElementById('btn-ex4');
+
+
+		btn1.addEventListener('click',function(){
+			throw new Error("throw出一个error！！！");
+		});
+
+		btn2.addEventListener('click',function(){
+			Sai.error(new Error("主动监控被捕获的错误"));
+		});
+
+		btn3.addEventListener('click',function(){
+			notDefined();
+		});
+
+		btn4.addEventListener('click',function(){
+		    Sai.log("test");
+		});
+
+
+	</script>
+
+</body>
+</html>
